@@ -1,0 +1,506 @@
+/*calendar*/
+@media (min-width: 930px) {
+  #calendar {
+    border: 1px solid #d7eae0;
+    width: 860px;
+    border-radius: 12px;
+    background-color: #f9f9f9;
+    padding-top: 12px;
+    margin: auto;
+  }
+
+  #month {
+    padding-top: 30px;
+    padding-bottom: 5px;
+    border-bottom: 2px dashed #939393;
+    margin: auto;
+  }
+
+  #nextMonth {
+    float: right;
+    margin-right: 10px;
+  }
+
+  #prevMonth {
+    float: left;
+    margin-left: 10px;
+  }
+
+  #day {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30pt;
+    border: 1px solid #4dffa6;
+    width: 120px;
+    height: 90px;
+    padding: 2px;
+    float: left;
+    margin: 1px;
+    border-radius: 8px;
+    background-color: white;
+  }
+
+  #day:hover {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30pt;
+    background-color: #99ffcc;
+    border: 1px solid #99ffcc;
+    width: 120px;
+    height: 90px;
+    padding: 2px;
+    float: left;
+    margin: 1px;
+    border-radius: 8px;
+    transition: 0.4s;
+  }
+
+  #now {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30pt;
+    border: 1px solid red;
+    width: 120px;
+    height: 90px;
+    padding: 2px;
+    float: left;
+    margin: 1px;
+    border-radius: 8px;
+    background-color: #e4e4e4;
+  }
+
+  #now:hover {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30pt;
+    background-color: #99ffcc;
+    border: 1px solid black;
+    width: 120px;
+    height: 90px;
+    padding: 2px;
+    float: left;
+    margin: 1px;
+    border-radius: 8px;
+    transition: 0.4s;
+  }
+
+  #now span {
+    color: #480e0e;
+  }
+
+  #dayoff {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30pt;
+    border: 1px solid #FFFAF0;
+    width: 120px;
+    height: 90px;
+    padding: 2px;
+    float: left;
+    margin: 1px;
+    border-radius: 8px;
+    background-color: #ECECEC;
+  }
+
+  #dayoff span {
+    color: #959595;
+  }
+
+  #day span {
+    color: #480e0e;
+  }
+
+  #week {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30pt;
+    border: 1px dotted white;
+    width: 120px;
+    height: 90px;
+    padding: 2px;
+    float: left;
+    margin: 1px;
+  }
+}
+
+@media (max-width: 930px) and (min-width: 731px){
+  #calendar {
+    border: 1px solid #d7eae0;
+    width: 860px;
+    border-radius: 12px;
+    background-color: #f9f9f9;
+    padding-top: 12px;
+    margin: auto;
+  }
+
+  #month {
+    font-size: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed #939393;
+    margin: auto;
+  }
+
+  #nextMonth {
+    float: right;
+    margin-right: 10px;
+  }
+
+  #prevMonth {
+    float: left;
+    margin-left: 10px;
+  }
+
+  #day {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30pt;
+    border: 1px solid #4dffa6;
+    width: 120px;
+    height: 90px;
+    padding: 2px;
+    float: left;
+    margin: 1px;
+    border-radius: 8px;
+    background-color: white;
+  }
+
+  #day:hover {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30pt;
+    background-color: #99ffcc;
+    border: 1px solid #99ffcc;
+    width: 120px;
+    height: 90px;
+    padding: 2px;
+    float: left;
+    margin: 1px;
+    border-radius: 8px;
+    transition: 0.4s;
+  }
+
+  #now {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30pt;
+    border: 1px solid red;
+    width: 120px;
+    height: 90px;
+    padding: 2px;
+    float: left;
+    margin: 1px;
+    border-radius: 8px;
+    background-color: #e4e4e4;
+  }
+
+  #now:hover {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30pt;
+    background-color: #99ffcc;
+    border: 1px solid black;
+    width: 120px;
+    height: 90px;
+    padding: 2px;
+    float: left;
+    margin: 1px;
+    border-radius: 8px;
+    transition: 0.4s;
+  }
+
+  #now span {
+    color: #480e0e;
+  }
+
+  #dayoff {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30pt;
+    border: 1px solid #FFFAF0;
+    width: 120px;
+    height: 90px;
+    padding: 2px;
+    float: left;
+    margin: 1px;
+    border-radius: 8px;
+    background-color: #ECECEC;
+  }
+
+  #dayoff span {
+    color: #959595;
+  }
+
+  #day span {
+    color: #480e0e;
+  }
+
+  #week {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30pt;
+    border: 1px dotted white;
+    width: 120px;
+    height: 90px;
+    padding: 2px;
+    float: left;
+    margin: 1px;
+  }
+}
+
+
+
+@media (max-width: 730px) and (min-width: 470px) {
+
+  #calendar {
+    border: 1px solid #d7eae0;
+    width: 720px;
+    border-radius: 12px;
+    background-color: #f9f9f9;
+    padding-top: 12px;
+    margin: auto;
+  }
+
+  #month {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed #939393;
+    margin: auto;
+  }
+
+  #nextMonth {
+    float: right;
+    margin-right: 10px;
+  }
+
+  #prevMonth {
+    float: left;
+    margin-left: 10px;
+  }
+
+  #day {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30pt;
+    border: 1px solid #4dffa6;
+    width: 100px;
+    height: 70px;
+    padding: 2px;
+    float: left;
+    margin: 1px;
+    border-radius: 8px;
+    background-color: white;
+  }
+
+  #day:hover {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30pt;
+    background-color: #99ffcc;
+    border: 1px solid #99ffcc;
+    width: 100px;
+    height: 70px;
+    padding: 2px;
+    float: left;
+    margin: 1px;
+    border-radius: 8px;
+    transition: 0.4s;
+  }
+
+  #now {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30pt;
+    border: 1px solid red;
+    width: 100px;
+    height: 70px;
+    padding: 2px;
+    float: left;
+    margin: 1px;
+    border-radius: 8px;
+    background-color: #e4e4e4;
+  }
+
+  #now:hover {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30pt;
+    background-color: #99ffcc;
+    border: 1px solid black;
+    width: 100px;
+    height: 70px;
+    padding: 2px;
+    float: left;
+    margin: 1px;
+    border-radius: 8px;
+    transition: 0.4s;
+  }
+
+  #now span {
+    color: #480e0e;
+  }
+
+  #dayoff {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30pt;
+    border: 1px solid #FFFAF0;
+    width: 100px;
+    height: 70px;
+    padding: 2px;
+    float: left;
+    margin: 1px;
+    border-radius: 8px;
+    background-color: #ECECEC;
+  }
+
+  #dayoff span {
+    color: #959595;
+  }
+
+  #day span {
+    color: #480e0e;
+  }
+
+  #week {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30pt;
+    border: 1px dotted white;
+    width: 100px;
+    height: 70px;
+    padding: 2px;
+    float: left;
+    margin: 1px;
+  }
+
+}
+
+@media (max-width: 469px) {
+
+  #calendar{
+    border: 1px solid #d7eae0;
+    width: 297px;
+    border-radius: 12px;
+    background-color: #f9f9f9;
+    padding-top: 12px;
+    text-align: center;
+    margin: auto;
+    overflow: auto;
+  }
+
+  #month{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed #939393;
+    margin: auto;
+  }
+
+  #nextMonth{
+    width: 30px;
+    float: right;
+    margin-right: 1px;
+  }
+
+  #prevMonth{
+    width: 30px;
+    float: left;
+    margin-left: 1px;
+  }
+
+  #day{
+    border: 1px solid #4dffa6;
+    width: 40px;
+    height: 30px;
+    padding: 2px;
+    float: left;
+    margin: 1px;
+    border-radius: 8px;
+    background-color: white;
+  }
+
+  #day:hover{
+    background-color: #99ffcc;
+    border: 1px solid #99ffcc;
+    width: 40px;
+    height: 30px;
+    padding: 2px;
+    float: left;
+    margin: 1px;
+    border-radius: 8px;
+    transition: 0.4s;
+  }
+
+  #now{
+    border: 1px solid red;
+    width: 40px;
+    height: 30px;
+    padding: 2px;
+    float: left;
+    margin: 1px;
+    border-radius: 8px;
+    background-color: #e4e4e4;
+  }
+
+  #now:hover{
+    background-color: #99ffcc;
+    border: 1px solid black;
+    width: 40px;
+    height: 30px;
+    padding: 2px;
+    float: left;
+    margin: 1px;
+    border-radius: 8px;
+    transition: 0.4s;
+  }
+
+  #now span {
+    color: #480e0e;}
+
+  #dayoff{
+    border: 1px solid #FFFAF0;
+    width: 40px;
+    height: 30px;
+    padding: 2px;
+    float: left;
+    margin: 1px;
+    border-radius: 8px;
+    background-color: #ECECEC;
+  }
+
+  #dayoff span {
+    color: #959595;}
+
+  #day span {
+    color: #480e0e;}
+
+  #week{
+    border: 1px dotted white;
+    width: 40px;
+    height: 30px;
+    padding: 2px;
+    float: left;
+    margin: 1px;
+  }
+
+
+}
+

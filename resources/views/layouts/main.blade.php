@@ -16,7 +16,10 @@
     <!-- Site Title -->
     <title>@yield('title')</title>
 
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+    <link href="css/calendar.css" rel="stylesheet">
+    <script async src="js/calendar.js"></script>
+
+   <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
     <!--
     CSS
     ============================================= -->
@@ -32,21 +35,54 @@
 </head>
 <body>
 <header id="header">
-    <div class="container main-menu">
-        <div class="row align-items-center justify-content-between d-flex">
-            <div id="logo">
-                <a href="/"><img src="img/logo.png" alt="" title="" /></a>
-            </div>
-            <nav id="nav-menu-container">
-                <ul class="nav-menu">
-                    <li><a href="/">Главная</a></li>
-                    <li><a href="entry">Запись</a></li>
-                    <li><a href="service">Виды услуг</a></li>
-                    <li><a href="about">О сайте</a></li>
-                    <li><a href="contacts">Контакты</a></li>
-                    <li><a href="login">Войти</a></li>
-                </ul>
-            </nav><!-- #nav-menu-container -->
+   <div class="container main-menu">
+       <div class="row align-items-center justify-content-between d-flex">
+           <div id="logo">
+               <a href="/"><img src="img/logo.png" alt="" title="" /></a>
+           </div>
+           <nav id="nav-menu-container">
+               <ul class="nav-menu">
+                   <li><a href="/">Главная</a></li>
+                   <li><a href="record">Запись</a></li>
+                   <li><a href="service">Виды услуг</a></li>
+                   <li><a href="about">О сайте</a></li>
+                   <li><a href="contacts">Контакты</a></li>
+
+
+                   <!-- Authentication Links -->
+                   @guest
+                       <li>
+                           <a class="nav-link" href="{{ route('login') }}">{{ __('Войти') }}</a>
+                       </li>
+                       @if (Route::has('register'))
+                           <li>
+                               <a class="nav-link" href="{{ route('register') }}">{{ __('Регистрация') }}</a>
+                           </li>
+                       @endif
+                   @else
+                       <li class="nav-item dropdown">
+                           <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                               {{ Auth::user()->name }} <span class="caret"></span>
+                           </a>
+
+                           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                               <a class="dropdown-item" href="{{ route('logout') }}"
+                                  onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                   {{ __('Выйти') }}
+                               </a>
+
+                               <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                   @csrf
+                               </form>
+                           </div>
+                       </li>
+                   @endguest
+
+
+
+               </ul>
+           </nav><!-- #nav-menu-container -->
         </div>
     </div>
 </header><!-- #header -->
