@@ -1,7 +1,7 @@
 ﻿var date= new Date();//Обьект дата
 var nowDate = Date.parse(date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate());
 var rusMonth = ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];
-var engShortMonth = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+var engShortMonth = ["January","February","March","April","May","June","July", "August","September","October","November","December"];
 var month = date.getMonth();
 var year = date.getFullYear();
 dayInMonthCoanter();
@@ -42,9 +42,9 @@ function dayCounter(){
     }
     for(var i = 1; i <= daysInMonth; i++){
         if (i % 2 === 0 && Date.parse(year+'-'+(month+1)+'-'+i) > nowDate){//1
-            document.getElementById('days').innerHTML += '<a href="record/setdate/'+ i +'-' + engShortMonth[(month+1)] + '-' + year + '"><div id="day">' + i + '</div><a/>';
+            document.getElementById('days').innerHTML += '<a href="record/'+ i +'-' + engShortMonth[month] + '-' + year + '"><div id="day">' + i + '</div><a/>';
         } else if (i % 2 === 0 && Date.parse(year+'-'+(month+1)+'-'+i) == nowDate) {
-            document.getElementById('days').innerHTML += '<a href="record/setdate/'+ i +'-' + engShortMonth[(month+1)] + '-' + year + '"><div id="now">' + i + '</div><a/>';
+            document.getElementById('days').innerHTML += '<a href="record/'+ i +'-' + engShortMonth[month] + '-' + year + '"><div id="now">' + i + '</div><a/>';
         }else if (Date.parse(year+'-'+(month+1)+'-'+i) == nowDate) {//3
             document.getElementById('days').innerHTML += '<div id="now">' + i + '</div>';
             //alert(3);
