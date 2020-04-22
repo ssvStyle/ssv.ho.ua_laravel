@@ -2,13 +2,16 @@
 
 namespace App\Models;
 /**
- * Class CheckDate
+ * Class Date
  *
  * @package App\Models
  */
 abstract class Date
 {
     /**
+     *
+     *checks the correct date
+     *
      * @param $date
      *
      * @return bool|string
@@ -25,6 +28,21 @@ abstract class Date
         }
 
         return false;
+
+    }
+
+    /**
+     * return translate date(month) to ru
+     *
+     * @param $date|timestamp
+     *
+     * @return string
+     */
+    public static function rus( $date )
+    {
+        $months = [ 1 => 'Января' , 'Февраля' , 'Марта' , 'Апреля' , 'Мая' , 'Июня' , 'Июля' , 'Августа' , 'Сентября' , 'Октября' , 'Ноября' , 'Декабря' ];
+
+        return date('j', $date) .' '.$months[date('n', $date)] . ' ' . date('Y', $date) . ' года';
 
     }
 }

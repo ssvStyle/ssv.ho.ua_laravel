@@ -21,11 +21,7 @@ Route::get('/index', function () {
     return view('index');
 });
 
-Route::get('/record', function () {
-    return view('record');
-});
-
-Route::get('/record/{date}', 'AddRecord@showTime' );
+Route::get('/record/{date?}', 'Record@showTime' );
 
 Route::get('/service', function () {
     return view('service');
