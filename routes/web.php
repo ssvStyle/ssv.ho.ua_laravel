@@ -21,7 +21,10 @@ Route::get('/index', function () {
     return view('index');
 });
 
-Route::get('/record/{date?}', 'Record@showTime' );
+Route::get('/record', 'RecordCurrentDate@getTime' );
+
+Route::get('/record/{date}', 'RecordChosenDate@getTime' );
+
 
 Route::get('/service', function () {
     return view('service');
@@ -38,6 +41,10 @@ Route::get('/contacts', function () {
 Route::get('/login', function () {
     return view('login');
 });
+
+//Route::get('/test', 'Test@run');
+
+Route::post('/addRecord', 'Record@store');
 
 
 Auth::routes();

@@ -3,49 +3,78 @@
 namespace App\Http\Controllers;
 
 use App\Models\Date;
+use App\Repositories\Interfaces\RepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Time;
 use App\Models\Servises;
+use Illuminate\View\View;
+use App\Models\Record as RecordModel;
 
 class Record extends Controller
 {
     /**
-     * Shows the recording time for a given date
-     *
-     * @param string $date
-     *
-     * @return View
-     *
+     * @var RepositoryInterface
      */
-    public function showTime($date = '')
+    protected $recordRepository;
+
+    /**
+     * Record constructor.
+     * @param RepositoryInterface $recordRepository
+     */
+    public function __construct( RepositoryInterface $recordRepository )
     {
-        $date = $date ?: date('j-F-Y');
 
-        $dateTimeStamp = Date::check($date);
+        $this->recordRepository = $recordRepository;
 
-        if ($dateTimeStamp) {
+    }
 
-            $sql = 'SELECT 
-`record`.`id`, `date`, `user`.`name` AS `userName`, `phone` AS `userPhone`, `time`.`time`, `servise`.`name` AS `servise`, `servise`.`name` AS `addSevise`, `status`.`name` AS `status`
-FROM `record` 
-LEFT JOIN `user` ON `record`.`user_id`=`user`.`id` 
-LEFT JOIN `servise` ON `record`.`servise_id`=`servise`.`id`
-LEFT JOIN `servise` AS `addSevise` ON `record`.`add_servise_id`=`servise`.`id`
-LEFT JOIN `time` ON `record`.`time`=`time`.`id`
-LEFT JOIN `status` ON `record`.`status_id`=`status`.`id`';
+    /**
+     * @param $dateTimestamp
+     * @param $error
+     * @return View Record
+     */
+
+    public function showTime($dateTimestamp, $error)
+    {
+
+        $error = \Session::get('error') ?? $error;
+
+        $dateTimestamp = Date::toTimestamp( Date::getEvenNumber( $dateTimestamp ) );
+
+        return view('record')
+            ->with('day' , $this->recordRepository->getRecordTimeByDate($dateTimestamp))
+            ->with('servises', Servises::all())
+            ->with('date', Date::getRusMonth($dateTimestamp))
+            ->with('error', $error)
+            ->with('dateTimestamp', $dateTimestamp);
+    }
 
 
+    public function store( Request $request )
+    {
 
+        if ( $request->input('time') && $request->input('servise' ) ) {
 
-            return view('record')
-                ->with('day' , Time::all())
-                ->with('servises', Servises::all())
-                ->with('date', Date::rus($dateTimeStamp));
+            $data = [
+                'date' => $request->input('date'),
+                'time' => $request->input('time'),
+                'user_id' => 1,
+                'servise_id' => $request->input('servise'),
+                'add_servise_id' => $request->input('addServise'),
+                'status_id' => 5,
+
+            ];
+
+            RecordModel::create($data);
+
+            return redirect('record')
+                ->with('error', 'Запись добавленна! Отредактировать или удалить можно в личном кабинете');
 
         }
 
-        return view('record')->with('error', 'Invalid date!');
+        return redirect('record/' . date('j-F-Y', $request->input('date' )) )
+                ->with( 'error', 'Не выбранно время и (или) услуга !!!' );
 
     }
 }
