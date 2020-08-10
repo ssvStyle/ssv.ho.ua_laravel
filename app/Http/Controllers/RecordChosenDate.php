@@ -15,7 +15,7 @@ class RecordChosenDate extends Record
      * @return View
      *
      */
-    public function getTime( $date )
+    public function create( $date )
     {
         $date = $date ?: date('j-F-Y');
         $error = '';

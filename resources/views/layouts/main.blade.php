@@ -18,7 +18,7 @@
 <body>
 
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="#">SSV</a>
+    <a class="navbar-brand" href="/">SSV</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -29,7 +29,7 @@
                 <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/record">Запись</a>
+                <a class="nav-link" href="/record/create">Запись</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/service">Услуги</a>

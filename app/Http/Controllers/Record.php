@@ -6,7 +6,6 @@ use App\Models\Date;
 use App\Repositories\Interfaces\RepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Time;
 use App\Models\Servises;
 use Illuminate\View\View;
 use App\Models\Record as RecordModel;
@@ -68,12 +67,12 @@ class Record extends Controller
 
             RecordModel::create($data);
 
-            return redirect('record')
+            return redirect('record/create/')
                 ->with('error', 'Запись добавленна! Отредактировать или удалить можно в личном кабинете');
 
         }
 
-        return redirect('record/' . date('j-F-Y', $request->input('date' )) )
+        return redirect('record/create/' . date('j-F-Y', $request->input('date' )) )
                 ->with( 'error', 'Не выбранно время и (или) услуга !!!' );
 
     }

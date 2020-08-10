@@ -11,7 +11,7 @@ class RecordCurrentDate extends Record
      * @return View vs current date
      *
      */
-    public function getTime()
+    public function create()
     {
 
         return parent::showTime(Date::toTimestamp( date('j-F-Y') ), '');

@@ -17,13 +17,9 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/index', function () {
-    return view('index');
-});
+Route::get('/record/create', 'RecordCurrentDate@create' );
 
-Route::get('/record', 'RecordCurrentDate@getTime' );
-
-Route::get('/record/{date}', 'RecordChosenDate@getTime' );
+Route::get('/record/create/{date}', 'RecordChosenDate@create' );
 
 
 Route::get('/service', function () {
@@ -44,9 +40,7 @@ Route::get('/login', function () {
 
 //Route::get('/test', 'Test@run');
 
-Route::post('/addRecord', 'Record@store');
+Route::post('/record', 'Record@store');
 
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

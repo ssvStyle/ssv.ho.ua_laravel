@@ -53,7 +53,7 @@
                     </div>
                     <hr>
                 </div>
-                    <form action="/addRecord" method="post">
+                    <form action="/record" method="post">
                         <input type="hidden" name="date" value="{{ $dateTimestamp }}">
                         {{ csrf_field() }}
                         <div class="row mb-2">

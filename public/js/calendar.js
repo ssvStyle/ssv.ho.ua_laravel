@@ -42,9 +42,9 @@ function dayCounter(){
     }
     for(var i = 1; i <= daysInMonth; i++){
         if (i % 2 === 0 && Date.parse(year+'-'+(month+1)+'-'+i) > nowDate){
-            document.getElementById('days').innerHTML += '<a href="/record/'+ i +'-' + engShortMonth[month] + '-' + year + '"><div id="day">' + i + '</div><a/>';
+            document.getElementById('days').innerHTML += '<a href="/record/create/'+ i +'-' + engShortMonth[month] + '-' + year + '"><div id="day">' + i + '</div><a/>';
         } else if (i % 2 === 0 && Date.parse(year+'-'+(month+1)+'-'+i) == nowDate) {
-            document.getElementById('days').innerHTML += '<a href="/record/'+ i +'-' + engShortMonth[month] + '-' + year + '"><div id="now">' + i + '</div><a/>';
+            document.getElementById('days').innerHTML += '<a href="/record/create/'+ i +'-' + engShortMonth[month] + '-' + year + '"><div id="now">' + i + '</div><a/>';
         }else if (Date.parse(year+'-'+(month+1)+'-'+i) == nowDate) {
             document.getElementById('days').innerHTML += '<div id="now">' + i + '</div>';
         } else {
